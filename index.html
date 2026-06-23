@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Скачать Telegram Proxy v1.0.4</title>
-  <meta name="description" content="Скачать Telegram Proxy для Windows 10/11. Прямая ссылка на exe-файл v1.0.4.">
+  <meta name="description" content="Скачать Telegram Proxy для Windows 10/11. Прямая ссылка на exe-файл v1.0.4 — 3.8 MB, без вирусов.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://telegramproxy.ru/download.html">
+  <meta property="og:title" content="Скачать Telegram Proxy v1.0.4">
+  <meta property="og:description" content="Бесплатная утилита для Windows 10/11. 3.8 MB, без вирусов, открытый код.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tg-proxy.sbs/download.html">
+  <meta property="og:image" content="https://tg-proxy.sbs/favicon.png">
+  <link rel="canonical" href="https://tg-proxy.sbs/download.html">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     *, *::before, *::after {
       margin: 0;
@@ -22,6 +28,7 @@
       --text-secondary: #8B95A8;
       --accent-green: #4ADE80;
       --border: #1E293B;
+      --primary-glow: rgba(42, 171, 238, 0.25);
     }
 
     html, body {
@@ -50,26 +57,36 @@
       position: absolute;
       border-radius: 50%;
       filter: blur(100px);
-      opacity: 0.3;
+      opacity: 0.35;
     }
 
     .bg .orb:nth-child(1) {
-      width: 500px;
-      height: 500px;
+      width: 550px;
+      height: 550px;
       background: var(--primary);
-      top: -10%;
-      right: -5%;
+      top: -15%;
+      right: -8%;
       animation: float 8s ease-in-out infinite;
     }
 
     .bg .orb:nth-child(2) {
-      width: 350px;
-      height: 350px;
+      width: 400px;
+      height: 400px;
       background: #4ADE80;
-      bottom: -10%;
-      left: -5%;
-      opacity: 0.15;
+      bottom: -12%;
+      left: -6%;
+      opacity: 0.12;
       animation: float 10s ease-in-out infinite reverse;
+    }
+
+    .bg .orb:nth-child(3) {
+      width: 250px;
+      height: 250px;
+      background: #8B5CF6;
+      top: 50%;
+      left: 15%;
+      opacity: 0.1;
+      animation: float 12s ease-in-out infinite 2s;
     }
 
     .bg .grid {
@@ -86,119 +103,181 @@
       50% { transform: translateY(-15px); }
     }
 
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px var(--primary-glow); }
+      50% { box-shadow: 0 0 50px var(--primary-glow), 0 0 80px rgba(42, 171, 238, 0.08); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.6; }
     }
 
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(42, 171, 238, 0.2); }
-      50% { box-shadow: 0 0 50px rgba(42, 171, 238, 0.4), 0 0 80px rgba(42, 171, 238, 0.1); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .card {
       position: relative;
       z-index: 1;
-      background: var(--bg-card);
+      background: linear-gradient(135deg, rgba(19, 24, 32, 0.95), rgba(13, 17, 23, 0.95));
       border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 56px 48px;
-      max-width: 520px;
-      width: 90%;
+      padding: 56px 48px 44px;
+      max-width: 480px;
+      width: 92%;
       text-align: center;
       animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(42, 171, 238, 0.04);
+      backdrop-filter: blur(10px);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      border-color: rgba(42, 171, 238, 0.15);
+      box-shadow: 0 32px 100px rgba(0, 0, 0, 0.6), 0 0 60px rgba(42, 171, 238, 0.06);
+    }
+
+    .icon-wrap {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+    }
+
+    .icon-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary), transparent);
+      opacity: 0.25;
+      z-index: -1;
+      animation: glow 3s ease-in-out infinite;
     }
 
     .icon {
-      width: 64px;
-      height: 64px;
+      width: 72px;
+      height: 72px;
       background: linear-gradient(135deg, var(--primary), #0088CC);
       border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      box-shadow: 0 8px 30px rgba(42, 171, 238, 0.25);
+      box-shadow: 0 8px 32px rgba(42, 171, 238, 0.3);
     }
 
     .icon svg {
-      width: 30px;
-      height: 30px;
+      width: 34px;
+      height: 34px;
       fill: #fff;
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
-      margin-bottom: 8px;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
     }
 
-    .version {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
+    h1 .gradient {
+      background: linear-gradient(135deg, var(--primary) 0%, #4ADE80 50%, var(--primary) 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    .version-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(42, 171, 238, 0.1);
+      border: 1px solid rgba(42, 171, 238, 0.15);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .version-badge span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      display: inline-block;
+      animation: pulse 2s infinite;
     }
 
     .meta {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 12px;
       font-size: 13px;
       color: var(--text-secondary);
       margin-bottom: 28px;
+      flex-wrap: wrap;
     }
 
-    .meta span {
+    .meta-item {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      background: rgba(255,255,255,0.03);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.04);
     }
 
-    .meta .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--text-secondary);
+    .meta-item svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: linear-gradient(135deg, var(--primary), #0088CC);
       color: #fff;
       border: none;
-      padding: 18px 40px;
-      border-radius: 12px;
+      padding: 18px 44px;
+      border-radius: 14px;
       font-size: 17px;
       font-weight: 700;
       cursor: pointer;
       text-decoration: none;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s;
       position: relative;
       overflow: hidden;
       margin-bottom: 20px;
       animation: glow 3s ease-in-out infinite;
+      width: 100%;
+      justify-content: center;
     }
 
     .btn::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+      background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
       background-size: 200% 200%;
       transition: background-position 0.6s;
     }
 
     .btn:hover {
-      transform: translateY(-3px) scale(1.03);
+      transform: translateY(-4px) scale(1.02);
       box-shadow: 0 16px 50px rgba(42, 171, 238, 0.4);
     }
 
@@ -208,6 +287,14 @@
 
     .btn:active {
       transform: translateY(-1px) scale(0.98);
+    }
+
+    .btn .btn-sub {
+      font-weight: 400;
+      font-size: 12px;
+      opacity: 0.75;
+      display: block;
+      margin-top: 1px;
     }
 
     .virus {
@@ -223,42 +310,64 @@
 
     .virus svg {
       flex-shrink: 0;
+      filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.3));
     }
 
-    .back {
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin-bottom: 20px;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .links a {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-secondary);
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.25s;
     }
 
-    .back:hover {
+    .links a:hover {
       color: var(--primary);
+    }
+
+    .links a svg {
+      width: 14px;
+      height: 14px;
     }
 
     @media (max-width: 500px) {
       .card {
-        padding: 36px 24px;
-        border-radius: 16px;
+        padding: 36px 20px 32px;
+        border-radius: 18px;
       }
 
       h1 {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 16px 24px;
+        padding: 16px 28px;
         font-size: 15px;
       }
 
       .meta {
-        flex-wrap: wrap;
         gap: 8px;
+      }
+
+      .meta-item {
+        padding: 4px 10px;
+        font-size: 12px;
       }
     }
   </style>
@@ -267,34 +376,68 @@
   <div class="bg">
     <div class="orb"></div>
     <div class="orb"></div>
+    <div class="orb"></div>
     <div class="grid"></div>
   </div>
 
   <div class="card">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    <div class="icon-wrap">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </div>
     </div>
-    <h1>Telegram Proxy</h1>
-    <p class="version">Версия 1.0.4</p>
+
+    <h1><span class="gradient">Telegram Proxy</span></h1>
+
+    <div class="version-badge">
+      <span></span>
+      Версия 1.0.4 — 8 мая 2026
+    </div>
+
     <div class="meta">
-      <span>Windows 10 / 11</span>
-      <span class="dot"></span>
-      <span>EXE 3.8 MB</span>
-      <span class="dot"></span>
-      <span>Без вирусов</span>
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Windows 10 / 11
+      </span>
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        EXE 3.8 MB
+      </span>
+      <span class="meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        0/64 вирусов
+      </span>
     </div>
-    <a href="https://github.com/Flowseala/proxy-telegram/releases/download/proxytelegram/TelegramProxy1.0.4.exe" target="_blank" rel="noopener noreferrer" class="btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      Скачать Telegram Proxy v1.0.4
+
+    <a href="https://flowseala.github.io/telegramproxy/" target="_blank" rel="noopener noreferrer" class="btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span>
+        Скачать Telegram Proxy v1.0.4
+        <span class="btn-sub">Прямая ссылка на GitHub — без регистрации</span>
+      </span>
     </a>
+
     <div class="virus">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-      Проверено VirusTotal: 0/64 детектов
+      Проверено VirusTotal: 0/64 детектов. Открытый исходный код.
     </div>
-    <a href="https://tg-proxy.sbs/" target="_blank" rel="noopener noreferrer" class="back">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-      На главную
-    </a>
+
+    <div class="divider"></div>
+
+    <div class="links">
+      <a href="https://t.me/proxyservice10" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Telegram-канал
+      </a>
+      <a href="https://github.com/Flowseala/proxy-telegram" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://tg-proxy.sbs/" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        На главную
+      </a>
+    </div>
   </div>
 </body>
 </html>
